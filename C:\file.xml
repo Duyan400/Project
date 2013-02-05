@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<remboursement>
+    <client>bonjour</client>
+    <mois>bonjour</mois>
+    <remboursement>
+        <soin>bonjour</soin>
+        <date>mook kim</date>
+        <montant>mkyong</montant>
+    </remboursement>
+</remboursement>
