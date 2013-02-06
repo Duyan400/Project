@@ -59,10 +59,7 @@ public class TpAgile {
         reclamations.calcul();
         
         
-        REMBOURSEMENT remboursement = new REMBOURSEMENT();
-        remboursement.setSoin(reclamations.getSoins().get(0));
-        remboursement.setDate(reclamations.getDates().get(0));
-        remboursement.setMontant(reclamations.getMontants().get(0));
+        
         
         
         

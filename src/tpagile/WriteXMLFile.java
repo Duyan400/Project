@@ -9,14 +9,18 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
- 
-import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
  
 public class WriteXMLFile {
- 
+    
+   static String numeroClient = DocumentReclamations.getClient();
+   static String numeroMois = DocumentReclamations.getMois();
+   static double [] tab = DocumentReclamations.calcul();
+   
 	public static void test() {
+            
+            
  
 	  try {
  
@@ -29,33 +33,41 @@ public class WriteXMLFile {
 		doc.appendChild(rootElement);
                 
                 Element client = doc.createElement("client");
-		client.appendChild(doc.createTextNode("bonjour"));
+		client.appendChild(doc.createTextNode(numeroClient));
 		rootElement.appendChild(client);
                 
                 Element mois = doc.createElement("mois");
-		mois.appendChild(doc.createTextNode("bonjour"));
+		mois.appendChild(doc.createTextNode(numeroMois));
 		rootElement.appendChild(mois);
  
-		// remboursement elements
+		
+                
+                for (int i=0; i<tab.length; i++)
+                {  
+                    
+                
+                // remboursement elements
 		Element remboursement = doc.createElement("remboursement");
 		rootElement.appendChild(remboursement);
  
 		
  
  
-		// firstname elements
-		Element firstname = doc.createElement("soin");
-		firstname.appendChild(doc.createTextNode("bonjour"));
-		remboursement.appendChild(firstname);
+		
+		Element soin = doc.createElement("soin");
+		soin.appendChild(doc.createTextNode(DocumentReclamations.getSoins().get(i)));
+		remboursement.appendChild(soin);
  
-		// lastname elements
+		
 		Element date = doc.createElement("date");
-		date.appendChild(doc.createTextNode("mook kim"));
+		date.appendChild(doc.createTextNode(DocumentReclamations.getDates().get(i)));
 		remboursement.appendChild(date);
  
-		// nickname elements
+		
 		Element montant = doc.createElement("montant");
-		montant.appendChild(doc.createTextNode("mkyong"));
+                String s = new String();
+                s = "" + tab[i];
+		montant.appendChild(doc.createTextNode(s));
 		remboursement.appendChild(montant);
  
 		
@@ -64,7 +76,7 @@ public class WriteXMLFile {
 		TransformerFactory transformerFactory = TransformerFactory.newInstance();
 		Transformer transformer = transformerFactory.newTransformer();
 		DOMSource source = new DOMSource(doc);
-		StreamResult result = new StreamResult(new File("C:\\file.xml"));
+		StreamResult result = new StreamResult(new File("remboursements.xml"));
  
 		// Output to console for testing
 		// StreamResult result = new StreamResult(System.out);
@@ -72,11 +84,15 @@ public class WriteXMLFile {
 		transformer.transform(source, result);
  
 		System.out.println("File saved!");
+                
+                }
  
 	  } catch (ParserConfigurationException pce) {
-		pce.printStackTrace();
 	  } catch (TransformerException tfe) {
-		tfe.printStackTrace();
 	  }
-	}
+          
+          }
+          
+          
+	
 }

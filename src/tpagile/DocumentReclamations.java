@@ -13,7 +13,7 @@ import org.xml.sax.SAXException;
 
 public class DocumentReclamations {
 
-    private Document document;
+    private static Document document;
 
     /**
      *
@@ -42,7 +42,7 @@ public class DocumentReclamations {
         return documentFactory;
     }
 
-    public String getClient() {
+    public static String getClient() {
         String numeroClient = new String();
         List<String> list = new ArrayList();
         NodeList clients;
@@ -55,7 +55,7 @@ public class DocumentReclamations {
         return numeroClient;
     }
 
-    public char getContrat() {
+    public static char getContrat() {
         char c = 0;
         List<String> list = new ArrayList();
         NodeList contrats = document.getElementsByTagName("contrat");
@@ -68,7 +68,7 @@ public class DocumentReclamations {
         return c;
     }
 
-    public String getMois() {
+    public static String getMois() {
         String mois = new String();
         List<String> list = new ArrayList();
         NodeList leMois = document.getElementsByTagName("mois");
@@ -80,7 +80,7 @@ public class DocumentReclamations {
         return mois;
     }
 
-    public List<String> getSoins() {
+    public static List<String> getSoins() {
         List<String> list = new ArrayList();
         NodeList soins = document.getElementsByTagName("soin");
         for (int i = 0; i < soins.getLength(); i++) {
@@ -90,7 +90,7 @@ public class DocumentReclamations {
         return list;
     }
 
-    public List<String> getDates() {
+    public static List<String> getDates() {
         List<String> list = new ArrayList();
         NodeList dates = document.getElementsByTagName("date");
         for (int i = 0; i < dates.getLength(); i++) {
@@ -100,7 +100,7 @@ public class DocumentReclamations {
         return list;
     }
 
-    public List<String> getMontants() {
+    public static List<String> getMontants() {
         List<String> list = new ArrayList();
         NodeList montantsSoins = document.getElementsByTagName("montant");
         for (int i = 0; i < montantsSoins.getLength(); i++) {
@@ -236,7 +236,7 @@ public class DocumentReclamations {
     }
 
     // SECTION DES CALCUL DE REMBOURSEMENT
-    public double[] calcul() {
+    public static double[] calcul() {
         int compteurTab = 0;
 
         List<String> listeDeSoins = getSoins();
@@ -244,7 +244,7 @@ public class DocumentReclamations {
 
         double refund = 0;
 
-        double[] tabRemboursements = new double[listeDeMontants.size()];
+         double[] tabRemboursements = new double[listeDeMontants.size()];
 
 
         for (int z = 0; z < listeDeMontants.size(); z++) {
@@ -444,4 +444,6 @@ public class DocumentReclamations {
 
 
     }
+    
+   
 }
