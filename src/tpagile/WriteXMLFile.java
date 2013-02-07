@@ -11,6 +11,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import java.text.*; // pour utiliser DecimalFormat pour l'affichage de nombres réels
 
 public class WriteXMLFile {
 
@@ -20,7 +21,9 @@ public class WriteXMLFile {
 
     public static void test() {
 
-
+        // pour l'affichage de réels avec deux décimales
+        DecimalFormat dec2;
+        dec2 = new DecimalFormat("0.00");
 
         try {
 
@@ -65,7 +68,7 @@ public class WriteXMLFile {
 
                 Element montant = doc.createElement("montant");
                 String s = new String();
-                s = "" + tab[i];
+                s = "" + dec2.format(tab[i]) + "$";
                 montant.appendChild(doc.createTextNode(s));
                 remboursement.appendChild(montant);
 

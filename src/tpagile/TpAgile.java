@@ -29,22 +29,18 @@ public class TpAgile {
 
 
         reclamations.calcul();
-        
-        if (a==true && b==true && c==true && d==true && e==true  )
-        {
-           WriteXMLFile.test(); 
-        }
-        else
-        {
+
+        if (a == true && b == true && c == true && d == true && e == true) {
+            WriteXMLFile.test();
+        } else {
             WriteXMLErreur.test();
         }
-        
-        
-        
-            
-        
 
-    
-}
 
+
+
+
+
+
+    }
 }

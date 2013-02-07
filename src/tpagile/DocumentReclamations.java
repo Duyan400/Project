@@ -13,6 +13,7 @@ import org.xml.sax.SAXException;
 
 public class DocumentReclamations {
 
+    // pour l'affichage de réels avec deux décimales
     private static Document document;
 
     /**
@@ -247,12 +248,15 @@ public class DocumentReclamations {
 
     // SECTION DES CALCUL DE REMBOURSEMENT
     public static double[] calcul() {
+
+
+
         int compteurTab = 0;
 
         List<String> listeDeSoins = getSoins();
         List<String> listeDeMontants = getMontants();
 
-        double refund = 0;
+        double refund = 0.00;
 
         double[] tabRemboursements = new double[listeDeMontants.size()];
 
@@ -274,6 +278,7 @@ public class DocumentReclamations {
 
                     if (x == 0 || x == 100 || x == 200 || x == 500) {
                         refund = (y / 100.0) * 25.0;
+
                         tabRemboursements[compteurTab] = refund;
 
                     }
