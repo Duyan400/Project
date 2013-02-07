@@ -116,19 +116,24 @@ public class DocumentReclamations {
         String clientNumber = getClient();
         if (clientNumber.length() != 6) {
             resultat = false;
-        }
-        for (int i = 0; i < clientNumber.length(); i++) {
-            char c = clientNumber.charAt(i);
-            if (c > '9' || c < '0') {
-                
-                compteur++;
-            } 
-            
-            if (compteur != 0)
-            {
+        } else {
+            for (int i = 0; i < clientNumber.length(); i++) {
+                char c = clientNumber.charAt(i);
+                if (c > '9' || c < '0') {
+
+                    compteur++;
+                }
+            }
+
+            if (compteur != 0) {
                 resultat = false;
+            } else {
+                resultat = true;
             }
         }
+
+
+
 
         return resultat;
     }
@@ -199,7 +204,7 @@ public class DocumentReclamations {
 
         }
 
-        System.out.println("compteur = " + compteur);
+
 
         if (compteur == 3) {
             reponse = true;
@@ -256,12 +261,12 @@ public class DocumentReclamations {
             String numeroSoin = listeDeSoins.get(z);
             String montant = listeDeMontants.get(z);
             int x = Integer.parseInt(numeroSoin);
-            System.out.println("parseX =" + x);
+
 
             montant = montant.substring(0, montant.length() - 1);
 
             double y = Double.parseDouble(montant);
-            System.out.println("parseY =" + y);
+
 
             switch (getContrat()) {
 
@@ -441,7 +446,6 @@ public class DocumentReclamations {
         }
 
         for (int i = 0; i < tabRemboursements.length; i++) {
-            System.out.println(tabRemboursements[i]);
         }
 
         return tabRemboursements;

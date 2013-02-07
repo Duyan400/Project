@@ -30,13 +30,13 @@ public class TpAgile {
 
         reclamations.calcul();
         
-        if (a==false || b==false || c==false || d==false || e==false )
+        if (a==true && b==true && c==true && d==true && e==true  )
         {
-           WriteXMLErreur.test(); 
+           WriteXMLFile.test(); 
         }
         else
         {
-            WriteXMLFile.test();
+            WriteXMLErreur.test();
         }
         
         
