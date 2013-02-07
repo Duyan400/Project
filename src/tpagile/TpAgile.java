@@ -21,54 +21,30 @@ public class TpAgile {
         // TODO code application logic here
 
         DocumentReclamations reclamations = new DocumentReclamations("reclamations.xml");
-        
+        boolean a = DocumentReclamations.validerNumeroClient();
+        boolean b = DocumentReclamations.validerContrat();
+        boolean c = DocumentReclamations.validerSigneDollar();
+        boolean d = DocumentReclamations.validerNumeroSoin();
+        boolean e = DocumentReclamations.validerMois();
 
 
-        //TEST DES VALIDATIONS
-        //VALIDATION NUMERO CLIENT
-        if (reclamations.validerNumeroClient() == false) {
-            System.out.println("numero client invalide");
-
-        } else {
-            System.out.println("numero client valide");
-        }
-        //VALIDATION CONTRAT A B C D
-        if (reclamations.validerContrat() == false) {
-            System.out.println("contrat invalide");
-        } else {
-            System.out.println("contrat valide");
-        }
-        //VALIDATION SIGNE $ APRES CHAQUE MONTANT
-        if (reclamations.validerSigneDollar() == false) {
-            System.out.println("il manque signe dollar");
-        } else {
-            System.out.println("montant valide");
-        }
-        //VALIDATION NUMERO SOIN
-        if (reclamations.validerNumeroSoin() == false) {
-            System.out.println("numero de soin invalide");
-        } else {
-            System.out.println("numero de soin valide");
-        }
-        //VALIDATION NUMERO MOIS
-        if (reclamations.validerMois() == false) {
-            System.out.println("mois de reclamation invalide");
-        } else {
-            System.out.println("la date des reclamations est valide");
-        }
         reclamations.calcul();
         
+        if (a==false || b==false || c==false || d==false || e==false )
+        {
+           WriteXMLErreur.test(); 
+        }
+        else
+        {
+            WriteXMLFile.test();
+        }
         
         
         
-        
-        
-        WriteXMLFile.test();
-        
-        
+            
         
 
-    }
     
-        
+}
+
 }

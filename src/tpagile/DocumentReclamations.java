@@ -110,25 +110,30 @@ public class DocumentReclamations {
         return list;
     }
 
-    public boolean validerNumeroClient() {
+    public static boolean validerNumeroClient() {
         boolean resultat = false;
-
+        int compteur = 0;
         String clientNumber = getClient();
-        if (clientNumber.length() > 6) {
-            return false;
+        if (clientNumber.length() != 6) {
+            resultat = false;
         }
         for (int i = 0; i < clientNumber.length(); i++) {
-            if (clientNumber.charAt(i) > '9' || clientNumber.charAt(i) < '0') {
+            char c = clientNumber.charAt(i);
+            if (c > '9' || c < '0') {
+                
+                compteur++;
+            } 
+            
+            if (compteur != 0)
+            {
                 resultat = false;
-            } else {
-                resultat = true;
             }
         }
 
         return resultat;
     }
 
-    public boolean validerContrat() {
+    public static boolean validerContrat() {
         boolean resultat = false;
         char contratLetter = getContrat();
         if (contratLetter != 'A' && contratLetter != 'B' && contratLetter != 'C' && contratLetter != 'D') {
@@ -140,7 +145,7 @@ public class DocumentReclamations {
         return resultat;
     }
 
-    public boolean validerSigneDollar() {
+    public static boolean validerSigneDollar() {
         boolean resultat = false;
 
 
@@ -160,7 +165,7 @@ public class DocumentReclamations {
         return resultat;
     }
 
-    public boolean validerNumeroSoin() {
+    public static boolean validerNumeroSoin() {
         int j = 300;
         int compteur = 0;
         boolean reponse = false;
@@ -204,7 +209,7 @@ public class DocumentReclamations {
         return reponse;
     }
 
-    public boolean validerMois() {
+    public static boolean validerMois() {
 
 
         boolean resultat = false;
@@ -244,7 +249,7 @@ public class DocumentReclamations {
 
         double refund = 0;
 
-         double[] tabRemboursements = new double[listeDeMontants.size()];
+        double[] tabRemboursements = new double[listeDeMontants.size()];
 
 
         for (int z = 0; z < listeDeMontants.size(); z++) {
@@ -444,6 +449,4 @@ public class DocumentReclamations {
 
 
     }
-    
-   
 }
