@@ -30,11 +30,23 @@ public class WriteXMLErreur {
 
 
             Element message = doc.createElement("message");
-            message.appendChild(doc.createTextNode("Données Invalides"));
+            if (DocumentReclamations.validerContrat() == false) {
+                message.appendChild(doc.createTextNode("Le Type du contrat est incorrect."));
+            }
+            if (DocumentReclamations.validerNumeroClient() == false) {
+                message.appendChild(doc.createTextNode("Le numéro du client est invalide."));
+            }
+            if (DocumentReclamations.validerMois() == false) {
+                message.appendChild(doc.createTextNode("Les dates entrées sont incorrectes."));
+            }
+            if (DocumentReclamations.validerNumeroSoin() == false) {
+                message.appendChild(doc.createTextNode("Un numero de soin est invalide."));
+            }
+            if (DocumentReclamations.validerSigneDollar() == false) {
+                message.appendChild(doc.createTextNode("Le signe du dollar est manquant."));
+            }
+
             rootElement.appendChild(message);
-
-
-
 
             // write the content into xml file
             TransformerFactory transformerFactory = TransformerFactory.newInstance();

@@ -15,15 +15,14 @@ import java.text.*; // pour utiliser DecimalFormat pour l'affichage de nombres r
 
 public class WriteXMLFile {
 
-    static String numeroClient = DocumentReclamations.getClient();
+    static String totalRemb = "" + DocumentReclamations.totalRemboursements();
+    static String dossierClient = DocumentReclamations.getDossier();
     static String numeroMois = DocumentReclamations.getMois();
     static double[] tab = DocumentReclamations.calcul();
 
     public static void test() {
 
-        // pour l'affichage de réels avec deux décimales
-        DecimalFormat dec2;
-        dec2 = new DecimalFormat("0.00");
+
 
         try {
 
@@ -35,9 +34,9 @@ public class WriteXMLFile {
             Element rootElement = doc.createElement("remboursement");
             doc.appendChild(rootElement);
 
-            Element client = doc.createElement("client");
-            client.appendChild(doc.createTextNode(numeroClient));
-            rootElement.appendChild(client);
+            Element dossier = doc.createElement("dossier");
+            dossier.appendChild(doc.createTextNode(dossierClient));
+            rootElement.appendChild(dossier);
 
             Element mois = doc.createElement("mois");
             mois.appendChild(doc.createTextNode(numeroMois));
@@ -68,24 +67,28 @@ public class WriteXMLFile {
 
                 Element montant = doc.createElement("montant");
                 String s = new String();
-                s = "" + dec2.format(tab[i]) + "$";
+                s = "" + (tab[i]) + "$";
                 montant.appendChild(doc.createTextNode(s));
                 remboursement.appendChild(montant);
 
-
-
-                // write the content into xml file
-                TransformerFactory transformerFactory = TransformerFactory.newInstance();
-                Transformer transformer = transformerFactory.newTransformer();
-                DOMSource source = new DOMSource(doc);
-                StreamResult result = new StreamResult(new File("remboursements.xml"));
-
-                // Output to console for testing
-                // StreamResult result = new StreamResult(System.out);
-
-                transformer.transform(source, result);
-
             }
+
+            Element total = doc.createElement("total");
+            total.appendChild(doc.createTextNode(totalRemb));
+            rootElement.appendChild(total);
+
+
+
+            // write the content into xml file
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(new File("remboursements.xml"));
+
+            // Output to console for testing
+            // StreamResult result = new StreamResult(System.out);
+
+            transformer.transform(source, result);
 
             System.out.println("File saved!");
 

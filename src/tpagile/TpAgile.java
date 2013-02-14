@@ -1,31 +1,24 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package tpagile;
 
 import java.io.IOException;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 
-/**
- *
- * @author lamjedslim
- */
 public class TpAgile {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException, Exception {
-        // TODO code application logic here
 
-        DocumentReclamations reclamations = new DocumentReclamations("reclamations.xml");
-        boolean a = DocumentReclamations.validerNumeroClient();
-        boolean b = DocumentReclamations.validerContrat();
-        boolean c = DocumentReclamations.validerSigneDollar();
+
+        String in = args[0];
+        String out = args[1];
+        DocumentReclamations reclamations = new DocumentReclamations(in);
+
+
+        boolean a = DocumentReclamations.validerContrat();
+        boolean b = DocumentReclamations.validerNumeroClient();
+        boolean c = DocumentReclamations.validerMois();
         boolean d = DocumentReclamations.validerNumeroSoin();
-        boolean e = DocumentReclamations.validerMois();
+        boolean e = DocumentReclamations.validerSigneDollar();
 
 
         reclamations.calcul();
@@ -35,12 +28,6 @@ public class TpAgile {
         } else {
             WriteXMLErreur.test();
         }
-
-
-
-
-
-
 
     }
 }
