@@ -12,13 +12,12 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 public class Traitement {
-
     private static Document document;
 
     public Traitement(String documentFilePath) throws ParserConfigurationException, SAXException, IOException {
         parseXmlDocument(documentFilePath);
     }
-
+    
     private void parseXmlDocument(String documentFilePath) throws ParserConfigurationException, SAXException, IOException {
         DocumentBuilderFactory documentFactory = initializeDocumentFactory();
         DocumentBuilder parser = documentFactory.newDocumentBuilder();
