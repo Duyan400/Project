@@ -1,33 +1,32 @@
-#Convention de style
+﻿#Convention de style
 
-L'équipe utilise les conventions suivante
+L'équipe utilise les conventions suivantes:
 
-Nommage
+Nommage:
 
-Pour le nom des variables L
-
-e nom doit être en français et nous suivons le plus possible les normes JAVA 
+Pour le nom des variables, le nom doit être en français et nous suivons le plus possible les normes JAVA 
 (http://www.oracle.com/technetwork/java/javase/documentation/codeconvtoc-136057.html)
 
-Pour les noms de Classe
+Pour les noms de Classe:
 
-Mélange de minuscule, majuscule avec la première lettre de chaque mot en majuscule
-Nom le plus clair possible 
-Aucune lettre ou chiffre seul
-Evité les noms difficile a comprendre le sens 
+La première lettre du nom de classe débute par une minuscule, les mots suivants débutent pas une majuscule.
+Nom le plus clair possible.
+Aucune lettre ou chiffre seul.
+Evité les noms dont le sens est difficile à comprendre.
 
-Constante
-Clair
-Mots séparer par un underscore " _ "
+Constantes:
 
-Autre convention a suivre
+Claires
+Mots séparer par un underscore " _ ".
+
+Autre convention a suivre:
 
 Un espace devant chaque {
 
 Un saut de ligne après chaque ouverture d'une {
 Un saut de ligne après chaque fermeture d'une }
 
-Tabulation de 4 caractères 
+Tabulation de 4 caractères.
 
 
 
