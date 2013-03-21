@@ -7,7 +7,7 @@ import org.xml.sax.SAXException;
 public class Main {
 
     public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException, Exception {
-//testestestest
+
         String in = args[0];
         String out = args[1];
         Traitement reclamations = new Traitement(in);
