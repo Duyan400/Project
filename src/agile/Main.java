@@ -9,7 +9,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import net.sf.json.JSONObject;
 
-
 public class Main {
 
     public static void main(String[] args) throws Exception {
@@ -30,31 +29,26 @@ public class Main {
             objetJson = JSONErreur.enregistrer();
         } else {
             boolean f = Traitement.validerContrat();
-            
+
             boolean g = Traitement.validerNumeroClient();
-            
+
             boolean h = Traitement.validerMois();
-            
+
             boolean i = Traitement.validerNumeroSoin();
-            
+
             boolean j = Traitement.validerSigneDollar();
-            
+
             if (f == false || g == false || h == false || i == false || j == false) {
-                
+
                 objetJson = JSONErreur.enregistrer();
             } else {
                 Traitement.calcul();
                 objetJson = JSONRemboursements.enregistrer();
-                
-                
             }
-            
+
         }
-        
+
         ecrire(objetJson, out);
-        
-        
-        
     }
 
     public static BufferedWriter ouvreFichierModeEcriture(String nomFichierSortie) throws Exception {
@@ -66,6 +60,7 @@ public class Main {
         try {
 
             out.write(order.toString());
+            
             out.close();
 
         } catch (IOException e) {

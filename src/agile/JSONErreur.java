@@ -15,6 +15,7 @@ public class JSONErreur {
 
         if (Traitement.siElementDossierExiste() == false) {
             json.put("message", "L'élément 'Dossier' est manquant.");
+            
         } else if (Traitement.siElementMoisExiste() == false) {
             json.put("message", "L'élément 'mois' est manquant.");
         } else if (Traitement.siElementSoinExiste() == false) {

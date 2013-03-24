@@ -7,9 +7,8 @@ package agile;
 import java.util.ArrayList;
 import java.util.List;
 import net.sf.json.JSONArray;
+import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
-
-
 
 public class Traitement {
 
@@ -101,39 +100,55 @@ public class Traitement {
         return mois;
     }
 
-    public static List<String> getSoins() throws Exception {
+    public static List<String> getSoins() throws JSONException, Exception {
 
+        
+        parserJson();
         List<String> liste = new ArrayList();
+        try {
         JSONArray lesReclamations = reclamations.getJSONArray("reclamations");
         for (int i = 0; i < lesReclamations.size(); i++) {
-            JSONObject soin = lesReclamations.getJSONObject(i);
-            String leSoin = soin.getString("soin");
-            liste.add(leSoin);
+            JSONObject uneReclamation = lesReclamations.getJSONObject(i);
+            {
+                String leSoin = uneReclamation.getString("soin");
+                liste.add(leSoin);
+            }
         }
+        
+        }
+        catch (JSONException e) {} 
         return liste;
     }
 
     public static List<String> getDates() throws Exception {
 
+        parserJson();
         List<String> liste = new ArrayList();
+        try {
         JSONArray lesReclamations = reclamations.getJSONArray("reclamations");
         for (int i = 0; i < lesReclamations.size(); i++) {
             JSONObject date = lesReclamations.getJSONObject(i);
             String laDate = date.getString("date");
             liste.add(laDate);
         }
+        }
+        catch (JSONException e) {}
         return liste;
     }
 
     public static List<String> getMontants() throws Exception {
 
+        parserJson();
         List<String> liste = new ArrayList();
+        try {
         JSONArray lesReclamations = reclamations.getJSONArray("reclamations");
         for (int i = 0; i < lesReclamations.size(); i++) {
             JSONObject montant = lesReclamations.getJSONObject(i);
             String leMontant = montant.getString("montant");
             liste.add(leMontant);
         }
+        }
+        catch (JSONException e) {}
         return liste;
     }
 
@@ -167,14 +182,15 @@ public class Traitement {
     }
 
     public static boolean validerSigneDollar() throws Exception {
-
+        int compteur = 0;
         boolean resultat = false;
         for (String montant : getMontants()) {
             if (montant.charAt(montant.length() - 1) != '$') {
-                resultat = false;
-            } else {
-                resultat = true;
+                compteur++;
             }
+        }
+        if (compteur == 0) {
+            resultat = true;
         }
         return resultat;
     }
@@ -447,4 +463,3 @@ public class Traitement {
         }
     }
 }
-
