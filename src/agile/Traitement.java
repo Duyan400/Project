@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package agile;
 
 import java.util.ArrayList;
@@ -20,10 +16,8 @@ public class Traitement {
     }
 
     public static boolean siElementDossierExiste() throws Exception {
-
         String json = FileReader.loadFileIntoString("1.json");
         reclamations = JSONObject.fromObject(json);
-
         if (reclamations.has("dossier")) {
             return true;
         } else {
@@ -76,79 +70,70 @@ public class Traitement {
         parserJson();
         String dossier = reclamations.getString("dossier");
         return dossier;
-
     }
 
     public static String getNumeroClient() throws Exception {
-
         String dossier = getDossier();
         String numeroClient = dossier.substring(1);
         return numeroClient;
-
     }
 
     public static char getContrat() throws Exception {
-
         String dossier = getDossier();
         char TypeContrat = dossier.charAt(0);
         return TypeContrat;
     }
 
     public static String getMois() throws Exception {
-
         String mois = reclamations.getString("mois");
         return mois;
     }
 
     public static List<String> getSoins() throws JSONException, Exception {
-
-        
         parserJson();
         List<String> liste = new ArrayList();
         try {
-        JSONArray lesReclamations = reclamations.getJSONArray("reclamations");
-        for (int i = 0; i < lesReclamations.size(); i++) {
-            JSONObject uneReclamation = lesReclamations.getJSONObject(i);
-            {
-                String leSoin = uneReclamation.getString("soin");
-                liste.add(leSoin);
+            JSONArray lesReclamations = reclamations.getJSONArray("reclamations");
+            for (int i = 0; i < lesReclamations.size(); i++) {
+                JSONObject uneReclamation = lesReclamations.getJSONObject(i);
+                {
+                    String leSoin = uneReclamation.getString("soin");
+                    liste.add(leSoin);
+                }
             }
+        } catch (JSONException e) {
         }
-        
-        }
-        catch (JSONException e) {} 
         return liste;
     }
 
     public static List<String> getDates() throws Exception {
-
         parserJson();
         List<String> liste = new ArrayList();
         try {
-        JSONArray lesReclamations = reclamations.getJSONArray("reclamations");
-        for (int i = 0; i < lesReclamations.size(); i++) {
-            JSONObject date = lesReclamations.getJSONObject(i);
-            String laDate = date.getString("date");
-            liste.add(laDate);
+            JSONArray lesReclamations = reclamations.getJSONArray("reclamations");
+            for (int i = 0; i < lesReclamations.size(); i++) {
+                JSONObject date = lesReclamations.getJSONObject(i);
+                String laDate = date.getString("date");
+                liste.add(laDate);
+            }
+        } catch (JSONException e) {
         }
-        }
-        catch (JSONException e) {}
         return liste;
     }
 
     public static List<String> getMontants() throws Exception {
-
         parserJson();
         List<String> liste = new ArrayList();
         try {
-        JSONArray lesReclamations = reclamations.getJSONArray("reclamations");
-        for (int i = 0; i < lesReclamations.size(); i++) {
-            JSONObject montant = lesReclamations.getJSONObject(i);
-            String leMontant = montant.getString("montant");
-            liste.add(leMontant);
+            JSONArray lesReclamations = reclamations.getJSONArray("reclamations");
+            for (int i = 0; i < lesReclamations.size(); i++) {
+                JSONObject montant = lesReclamations.getJSONObject(i);
+                String leMontant = montant.getString("montant");
+                liste.add(leMontant);
+            }
+        } catch (JSONException e) {
         }
-        }
-        catch (JSONException e) {}
+        
         return liste;
     }
 
@@ -173,7 +158,6 @@ public class Traitement {
 
     public static boolean validerContrat() throws Exception {
         char typeContrat = getContrat();
-
         if (typeContrat != 'A' && typeContrat != 'B' && typeContrat != 'C' && typeContrat != 'D' && typeContrat != 'E') {
             return false;
         } else {
@@ -204,7 +188,6 @@ public class Traitement {
             tab2[i] = j;
             j = j + 1;
         }
-
         for (String numeroSoin : getSoins()) {
             int numeroSoinEntier = Integer.parseInt(numeroSoin);
 
@@ -219,7 +202,6 @@ public class Traitement {
                 }
             }
         }
-
         if (compteur == getSoins().size()) {
             return true;
         } else {
@@ -229,7 +211,6 @@ public class Traitement {
 
     public static boolean validerMois() throws Exception {
         int compteur = 0;
-
         for (String date : getDates()) {
             String date2 = new String();
             date2 = date2 + date.charAt(0);
@@ -239,12 +220,10 @@ public class Traitement {
             date2 = date2 + date.charAt(4);
             date2 = date2 + date.charAt(5);
             date2 = date2 + date.charAt(6);
-
             if (date2.equals(getMois())) {
                 compteur = compteur + 1;
             }
         }
-
         if (compteur == getDates().size()) {
             return true;
         } else {
@@ -257,7 +236,6 @@ public class Traitement {
         List<String> listeDeSoins = getSoins();
         List<String> listeDeMontants = getMontants();
         double[] tabRemboursements = new double[listeDeMontants.size()];
-
         for (int z = 0; z < listeDeMontants.size(); z++) {
             String numeroSoin = listeDeSoins.get(z);
             int numeroSoinEntier = Integer.parseInt(numeroSoin);
@@ -265,6 +243,7 @@ public class Traitement {
             montantVirgule = montantVirgule.substring(0, montantVirgule.length() - 1);
             String montantPoint = montantVirgule.replaceAll(",", ".");
             double montantDouble = Double.parseDouble(montantPoint);
+            
 
             switch (getContrat()) {
                 case 'A':
@@ -301,68 +280,45 @@ public class Traitement {
         double totalSoin600 = 0;
         double totalSoinAutre = 0;
         for (int i = 0; i < calcul().length; i++) {
-            
-            for (int j = 0; j < getSoins().size(); j++)
-            {
+
+            for (int j = 0; j < getSoins().size(); j++) {
                 String soin = getSoins().get(j);
-                if (soin.equals("100") && i==j)
-                {
+                if (soin.equals("100") && i == j) {
                     totalSoin100 = totalSoin100 + calcul()[i];
-                }
-                else if (soin.equals("175") && i==j)
-                {
+                } else if (soin.equals("175") && i == j) {
                     totalSoin175 = totalSoin175 + calcul()[i];
-                }
-                 else if (soin.equals("200") && i==j)
-                {
+                } else if (soin.equals("200") && i == j) {
                     totalSoin200 = totalSoin200 + calcul()[i];
-                }
-                  else  if (soin.equals("500") && i==j)
-                {
+                } else if (soin.equals("500") && i == j) {
                     totalSoin500 = totalSoin500 + calcul()[i];
-                }
-                  else    if (soin.equals("600") && i==j)
-                {
+                } else if (soin.equals("600") && i == j) {
                     totalSoin600 = totalSoin600 + calcul()[i];
+                } else if (!"100".equals(soin) && !"175".equals(soin) && !"200".equals(soin) && !"500".equals(soin) && !"600".equals(soin) && i == j) {
+                    totalSoinAutre = totalSoinAutre + calcul()[i];
                 }
-                  else if (soin != "100" && soin != "175" && soin != "200" && soin != "500" && soin != "600" && i==j)
-                  {
-                      totalSoinAutre = totalSoinAutre + calcul()[i];
-                  }
-                 
-                      
             }
-  }
-        if (totalSoin100 > 250)
-        {
+        }
+        if (totalSoin100 > 250) {
             totalSoin100 = 250;
         }
-        if (totalSoin175 > 200)
-        {
+        if (totalSoin175 > 200) {
             totalSoin175 = 200;
         }
-        if (totalSoin200 > 250)
-        {
+        if (totalSoin200 > 250) {
             totalSoin200 = 250;
         }
-        if (totalSoin500 > 150)
-        {
+        if (totalSoin500 > 150) {
             totalSoin500 = 150;
         }
-        if (totalSoin600 > 300)
-        {
+        if (totalSoin600 > 300) {
             totalSoin600 = 300;
         }
-        
-        
+
         total = total + totalSoin100 + totalSoin175 + totalSoin200 + totalSoin500 + totalSoin600 + totalSoinAutre;
-        
         return total;
     }
-    
-    
-        
-      public static void remboursementContratA(int numeroSoinEntier, double[] tabRemboursements, int compteurTab, double y) throws Exception {
+
+    public static void remboursementContratA(int numeroSoinEntier, double[] tabRemboursements, int compteurTab, double y) throws Exception {
         if (numeroSoinEntier == 0 || numeroSoinEntier == 200 || numeroSoinEntier == 500) {
             tabRemboursements[compteurTab] = (y / 100) * 25;
         }

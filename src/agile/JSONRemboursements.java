@@ -28,12 +28,12 @@ public class JSONRemboursements {
         for (int i = 0; i < tab.length; i++) {
             objetJson2.put("soin", Traitement.getSoins().get(i));
             objetJson2.put("date", Traitement.getDates().get(i));
-            objetJson2.put("montant", Traitement.calcul()[i]);
+            objetJson2.put("montant", Traitement.calcul()[i] + "$");
             remboursements.add(objetJson2);
             objetJson.put("remboursements", remboursements);
         }
         
-        objetJson.put("total", Traitement.totalRemboursements());
+        objetJson.put("total", Traitement.totalRemboursements() + "$");
 
         return objetJson;
     }

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package agile;
 
 import java.io.BufferedWriter;
@@ -12,7 +8,6 @@ import net.sf.json.JSONObject;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-
 
         JSONObject objetJson = new JSONObject();
         String monFichier = args[0];
@@ -41,11 +36,11 @@ public class Main {
             if (f == false || g == false || h == false || i == false || j == false) {
 
                 objetJson = JSONErreur.enregistrer();
-                System.out.println ("Fichier enregistré");
+                System.out.println("Fichier enregistré");
             } else {
                 Traitement.calcul();
                 objetJson = JSONRemboursements.enregistrer();
-                System.out.println ("Fichier enregistré");
+                System.out.println("Fichier enregistré");
             }
 
         }
@@ -62,7 +57,7 @@ public class Main {
         try {
 
             out.write(order.toString());
-            
+
             out.close();
 
         } catch (IOException e) {
