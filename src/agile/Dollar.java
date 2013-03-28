@@ -23,5 +23,23 @@ public class Dollar {
         return montantFinal;  
     }
     
+    public static int additionner(int a, int b)
+    {
+        int resultat = a + b;
+        return resultat;
+    }
+    
+    public static int diviser(int a, int b)
+    {
+        int resultat = a / b;
+        return resultat;
+    }
+    
+    public static int multiplier(int a, int b)
+    {
+        int resultat = a * b;
+        return resultat;
+    }
+    
     
 }

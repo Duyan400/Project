@@ -9,6 +9,7 @@ import net.sf.json.JSONObject;
 public class Traitement {
 
     public static JSONObject reclamations;
+    
 
     public static void parserJson() throws Exception {
         String json = FileReader.loadFileIntoString("1.json");

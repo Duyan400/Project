@@ -13,6 +13,8 @@ public class Main {
         String monFichier = args[0];
         String nomFichierMessageErreur = args[1];
         BufferedWriter out = ouvreFichierModeEcriture(nomFichierMessageErreur);
+        
+    
 
         Traitement.parserJson();
         boolean a = Traitement.siElementDossierExiste();
@@ -47,6 +49,7 @@ public class Main {
 
         ecrire(objetJson, out);
     }
+    
 
     public static BufferedWriter ouvreFichierModeEcriture(String nomFichierSortie) throws Exception {
         BufferedWriter out = new BufferedWriter(new FileWriter(nomFichierSortie));
