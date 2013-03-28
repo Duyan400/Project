@@ -294,13 +294,78 @@ public class Traitement {
 
     public static double totalRemboursements() throws Exception {
         double total = 0;
+        double totalSoin100 = 0;
+        double totalSoin175 = 0;
+        double totalSoin200 = 0;
+        double totalSoin500 = 0;
+        double totalSoin600 = 0;
+        double totalSoinAutre = 0;
         for (int i = 0; i < calcul().length; i++) {
-            total = total + calcul()[i];
+            
+            for (int j = 0; j < getSoins().size(); j++)
+            {
+                String soin = getSoins().get(j);
+                if (soin.equals("100") && i==j)
+                {
+                    totalSoin100 = totalSoin100 + calcul()[i];
+                }
+                else if (soin.equals("175") && i==j)
+                {
+                    totalSoin175 = totalSoin175 + calcul()[i];
+                }
+                 else if (soin.equals("200") && i==j)
+                {
+                    totalSoin200 = totalSoin200 + calcul()[i];
+                }
+                  else  if (soin.equals("500") && i==j)
+                {
+                    totalSoin500 = totalSoin500 + calcul()[i];
+                }
+                  else    if (soin.equals("600") && i==j)
+                {
+                    totalSoin600 = totalSoin600 + calcul()[i];
+                }
+                  else if (soin != "100" && soin != "175" && soin != "200" && soin != "500" && soin != "600" && i==j)
+                  {
+                      totalSoinAutre = totalSoinAutre + calcul()[i];
+                  }
+                 
+                      
+            }
+  }
+        if (totalSoin100 > 250)
+        {
+            totalSoin100 = 250;
         }
+        if (totalSoin175 > 200)
+        {
+            totalSoin175 = 200;
+        }
+        if (totalSoin200 > 250)
+        {
+            totalSoin200 = 250;
+        }
+        if (totalSoin500 > 150)
+        {
+            totalSoin500 = 150;
+        }
+        if (totalSoin600 > 300)
+        {
+            totalSoin600 = 300;
+        }
+        
+        for (int k=0; k<calcul().length; k++)
+        {
+        System.out.println (calcul()[k]);
+        }
+        total = total + totalSoin100 + totalSoin175 + totalSoin200 + totalSoin500 + totalSoin600 + totalSoinAutre;
+        
         return total;
     }
-
-    public static void remboursementContratA(int numeroSoinEntier, double[] tabRemboursements, int compteurTab, double y) throws Exception {
+    
+    
+        
+      public static void remboursementContratA(int numeroSoinEntier, double[] tabRemboursements, int compteurTab, double y) throws Exception {
         if (numeroSoinEntier == 0 || numeroSoinEntier == 200 || numeroSoinEntier == 500) {
             tabRemboursements[compteurTab] = (y / 100) * 25;
         }

@@ -30,8 +30,10 @@ public class JSONRemboursements {
             objetJson2.put("date", Traitement.getDates().get(i));
             objetJson2.put("montant", Traitement.calcul()[i]);
             remboursements.add(objetJson2);
-            objetJson.put("remboursement", remboursements);
+            objetJson.put("remboursements", remboursements);
         }
+        
+        objetJson.put("total", Traitement.totalRemboursements());
 
         return objetJson;
     }
