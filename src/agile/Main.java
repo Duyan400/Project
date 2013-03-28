@@ -41,9 +41,11 @@ public class Main {
             if (f == false || g == false || h == false || i == false || j == false) {
 
                 objetJson = JSONErreur.enregistrer();
+                System.out.println ("Fichier enregistré");
             } else {
                 Traitement.calcul();
                 objetJson = JSONRemboursements.enregistrer();
+                System.out.println ("Fichier enregistré");
             }
 
         }

@@ -354,10 +354,7 @@ public class Traitement {
             totalSoin600 = 300;
         }
         
-        for (int k=0; k<calcul().length; k++)
-        {
-        System.out.println (calcul()[k]);
-        }
+        
         total = total + totalSoin100 + totalSoin175 + totalSoin200 + totalSoin500 + totalSoin600 + totalSoinAutre;
         
         return total;
