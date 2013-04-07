@@ -2,7 +2,7 @@ package agile;
 
 public class ContratD {
     
-    public ContratD(int soin , int montant ){
+    public static int calculContratD(int soin , int montant ){
         
         int remboursement = 0 ; 
         
@@ -50,6 +50,8 @@ public class ContratD {
                 remboursement = 90;
             }
         }
+        
+        return remboursement;
     }
 }
         

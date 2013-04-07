@@ -9,13 +9,19 @@ public class ContratA {
         int remboursement = 0;
         
         if (soin == 0 || soin == 200 || soin == 500) {
-            remboursement = (montant / 100) * 25;
+            
+            remboursement = Dollar.diviser(montant, 100);
+            remboursement = Dollar.multiplier(remboursement, 25);
         }
         if (soin == 100) {
-            remboursement = (montant / 100) * 35;
+           
+            remboursement = Dollar.diviser(montant, 100);
+            remboursement = Dollar.multiplier(remboursement, 35);
         }
         if (soin == 150) {
-            remboursement = (montant / 100) * 0;
+            
+            remboursement = Dollar.diviser(montant, 100);
+            remboursement = Dollar.multiplier(remboursement, 0);
         }
         if (soin == 175) {
             remboursement = (montant / 100) * 50;
