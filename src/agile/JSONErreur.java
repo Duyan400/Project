@@ -33,7 +33,7 @@ public class JSONErreur {
             if (Validations.validerNumeroSoin() == false) {
                 jsonErreur.put("message", "Un numero de soin est invalide.");
             }
-            if (Validations.validerSigneDollar() == false) {
+            if (Validations.validerSyntaxeMontant() == false) {
                 jsonErreur.put("message", "Le signe du dollar est manquant.");
             }
         }

@@ -44,21 +44,16 @@ public class Validations {
     }
 
     public static boolean validerNumeroClient() throws Exception {
-        int compteur = 0;
         String numeroClient = LesGetters.getNumeroClient();
         if (numeroClient.length() != 6) {
             return false;
         } else {
             for (int i = 0; i < numeroClient.length(); i++) {
                 if (numeroClient.charAt(i) > '9' || numeroClient.charAt(i) < '0') {
-                    compteur++;
+                    return false;
                 }
             }
-            if (compteur != 0) {
-                return false;
-            } else {
-                return true;
-            }
+            return true;
         }
     }
 
@@ -70,21 +65,46 @@ public class Validations {
             return true;
         }
     }
-
-    public static boolean validerSigneDollar() throws Exception {
-        int compteur = 0;
+    
+    public static boolean validerSyntaxeMontant() throws Exception {
         boolean resultat = false;
         for (String montant : LesGetters.getMontants()) {
-            if (montant.charAt(montant.length() - 1) != '$') {
-                compteur++;
-            }
-        }
-        if (compteur == 0) {
-            resultat = true;
+            resultat = boucleValiderSyntaxeMontant(montant);
         }
         return resultat;
     }
-
+    
+    public static boolean boucleValiderSyntaxeMontant(String montant) {
+        if (montant.charAt(montant.length() - 1) != '$') {
+            return false;
+        }
+        if (montant.charAt(montant.length() - 2) < '0' || montant.charAt(montant.length() - 2) > '9') {
+            return false;
+        }
+        if (montant.charAt(montant.length() - 3) < '0' || montant.charAt(montant.length() - 3) > '9') {
+            return false;
+        }
+        if (montant.charAt(montant.length() - 4) != '.' || montant.charAt(montant.length() - 4) != ',') {
+            return false;
+        }
+        if (montant.charAt(montant.length() - 5) < '0' || montant.charAt(montant.length() - 3) > '9') {
+            return false;
+        }
+        if (!boucleValiderSiChiffresDansMontant(montant)) {
+            return false;
+        }
+        return true;
+    }
+    
+    public static boolean boucleValiderSiChiffresDansMontant(String montant) {
+        for (int i = 0; i < montant.length()-5; i++) {
+            if (montant.charAt(i) < '0' || montant.charAt(i) > '9') {
+                return false;
+            }
+        }
+        return true;
+    }
+    
     public static boolean validerNumeroSoin() throws Exception {
         int j = 300;
         int compteur = 0;
@@ -119,13 +139,9 @@ public class Validations {
         int compteur = 0;
         for (String date : LesGetters.getDates()) {
             String date2 = new String();
-            date2 = date2 + date.charAt(0);
-            date2 = date2 + date.charAt(1);
-            date2 = date2 + date.charAt(2);
-            date2 = date2 + date.charAt(3);
-            date2 = date2 + date.charAt(4);
-            date2 = date2 + date.charAt(5);
-            date2 = date2 + date.charAt(6);
+            for (int i = 0; i < 7; i++) {
+                date2 = date2 + date.charAt(i);
+            }
             if (date2.equals(LesGetters.getMois())) {
                 compteur = compteur + 1;
             }
