@@ -24,13 +24,19 @@ public class ContratA {
             remboursement = Dollar.multiplier(remboursement, 0);
         }
         if (soin == 175) {
-            remboursement = (montant / 100) * 50;
+            
+            remboursement = Dollar.diviser(montant, 100);
+            remboursement = Dollar.multiplier(remboursement, 50);
         }
         if (soin == 400 || soin == 700 || (soin >= 300 && soin <= 399)) {
-            remboursement = (montant / 100) * 0;
+            
+            remboursement = Dollar.diviser(montant, 100);
+            remboursement = Dollar.multiplier(remboursement, 0);
         }
         if (soin == 600) {
-            remboursement = (montant / 100) * 40;
+            
+            remboursement = Dollar.diviser(montant, 100);
+            remboursement = Dollar.multiplier(remboursement, 40);
         }
         
         return remboursement;
