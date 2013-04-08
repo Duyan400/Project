@@ -3,11 +3,10 @@ package agile;
 public class ContratE {
 
     public static int calculContratE(int soin, int montant) {
-
         int remboursement = 0;
 
         if (soin == 0) {
-             remboursement = Dollar.diviser(montant, 100);
+            remboursement = Dollar.diviser(montant, 100);
             remboursement = Dollar.multiplier(remboursement, 15);
             
         }
@@ -49,11 +48,11 @@ public class ContratE {
             }
         }
         if (soin == 600) {
-             remboursement = Dollar.diviser(montant, 100);
+            remboursement = Dollar.diviser(montant, 100);
             remboursement = Dollar.multiplier(remboursement, 15);
         }
         if (soin == 700) {
-             remboursement = Dollar.diviser(montant, 100);
+            remboursement = Dollar.diviser(montant, 100);
             remboursement = Dollar.multiplier(remboursement, 22);
         }
 
