@@ -20,6 +20,8 @@ public class Main {
         JSONObject objetJson = new JSONObject();
         BufferedWriter out = Main.ouvreFichierPourEcriture(sortie);
 
+        
+        
         boolean a = Validations.siElementDossierExiste();
         boolean b = Validations.siElementMoisExiste();
         boolean c = Validations.siElementSoinExiste();
@@ -38,8 +40,10 @@ public class Main {
             boolean i = Validations.validerNumeroSoin();
 
             boolean j = Validations.validerSyntaxeMontant();
+            
+            boolean k = Validations.validerCode();
 
-            if (f == false || g == false || h == false || i == false || j == false) {
+            if (f == false || g == false || h == false || i == false || j == false || k == false) {
 
                 objetJson = JSONErreur.enregistrer();
                 System.out.println("Fichier enregistré");

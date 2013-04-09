@@ -37,10 +37,23 @@ public class LesGetters {
             JSONArray lesReclamations = Main.parserJson(Main.entree).getJSONArray("reclamations");
             for (int i = 0; i < lesReclamations.size(); i++) {
                 JSONObject uneReclamation = lesReclamations.getJSONObject(i);
-                {
-                    String leSoin = uneReclamation.getString("soin");
-                    liste.add(leSoin);
-                }
+                String leSoin = uneReclamation.getString("soin");
+                liste.add(leSoin);
+            }
+        } catch (JSONException e) {
+        }
+        return liste;
+    }
+
+    public static List<String> getCodes() throws Exception {
+        List<String> liste = new ArrayList();
+
+        try {
+            JSONArray lesReclamations = Main.parserJson(Main.entree).getJSONArray("reclamations");
+            for (int i = 0; i < lesReclamations.size(); i++) {
+                JSONObject code = lesReclamations.getJSONObject(i);
+                String leCode = code.getString("code");
+                liste.add(leCode);
             }
         } catch (JSONException e) {
         }

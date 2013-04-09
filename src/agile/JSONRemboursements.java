@@ -22,6 +22,7 @@ public class JSONRemboursements {
 
         for (int i = 0; i < tab.length; i++) {
             objetJson2.put("soin", LesGetters.getSoins().get(i));
+            objetJson2.put("code", LesGetters.getCodes().get(i));
             objetJson2.put("date", LesGetters.getDates().get(i));
             objetJson2.put("montant", tab[i]);
             remboursements.add(objetJson2);

@@ -13,6 +13,8 @@ public class JSONErreur {
             jsonErreur.put("message", "L'élément 'mois' est manquant.");
         } else if (Validations.siElementSoinExiste() == false) {
             jsonErreur.put("message", "L'élément 'soin' est manquant à une des réclamations.");
+        } else if (Validations.siElementCodeExiste() == false) {
+            jsonErreur.put("message", "L'élément 'code' est manquant à une des réclamations.");
         } else if (Validations.siElementDateExiste() == false) {
             jsonErreur.put("message", "L'élément 'date' est manquant à une des réclamations.");
         } else if (Validations.siElementMontantExiste() == false) {
@@ -23,6 +25,9 @@ public class JSONErreur {
             }
             if (Validations.validerNumeroClient() == false) {
                 jsonErreur.put("message", "Le numéro du client est invalide.");
+            }
+            if (Validations.validerCode() == false) {
+                jsonErreur.put("message", "Le code d'une des réclamations est incorrect.");
             }
             if (Validations.validerMois() == false) {
                 jsonErreur.put("message", "Les dates entrées sont incorrectes.");

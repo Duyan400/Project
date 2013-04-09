@@ -20,6 +20,16 @@ public class Validations {
         }
     }
 
+    public static boolean siElementCodeExiste() throws Exception {
+        int nbReclamations = (Main.parserJson(Main.entree)).getJSONArray("reclamations").size();
+        int nbCodes = LesGetters.getCodes().size();
+        if (nbCodes != nbReclamations) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     public static boolean siElementDateExiste() throws Exception {
         int nbReclamations = (Main.parserJson(Main.entree)).getJSONArray("reclamations").size();
         int nbDates = LesGetters.getDates().size();
@@ -107,6 +117,44 @@ public class Validations {
             }
         }
         if (compteur == LesGetters.getSoins().size()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean validerCode() throws Exception {
+
+        int compteur = 0;
+
+        for (String code : LesGetters.getCodes()) {
+            if (code.charAt(0) == 'A' || code.charAt(0) == 'C') {
+                compteur++;
+            }
+            if (code.charAt(0) == 'E' || code.charAt(0) == 'H') {
+                String chaine = code.substring(1);
+                chaine = code.substring(1);
+                boolean resultat = (validerChiffresCode(chaine));
+                if (resultat == true) {
+                    compteur++;
+                }
+            }
+        }
+        if (compteur == LesGetters.getCodes().size()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean validerChiffresCode(String chaine) throws Exception {
+        int compteur = 0;
+        for (int i = 0; i < chaine.length(); i++) {
+            if (chaine.charAt(i) > '0' && chaine.charAt(i) <= '9') {
+                compteur++;
+            }
+        }
+        if (compteur == chaine.length()) {
             return true;
         } else {
             return false;
