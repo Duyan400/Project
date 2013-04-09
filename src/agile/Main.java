@@ -2,6 +2,7 @@ package agile;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.IOException;
 import net.sf.json.JSONObject;
 import net.sf.json.JSONSerializer;
 
@@ -11,12 +12,45 @@ public class Main {
     public static String sortie = new String();
 
     public static void main(String[] args) throws Exception {
-        
+
         entree = args[0];
         sortie = args[1];
+        String fichier = new String();
 
-        
+        JSONObject objetJson = new JSONObject();
+        BufferedWriter out = Main.ouvreFichierPourEcriture(sortie);
 
+        boolean a = Validations.siElementDossierExiste();
+        boolean b = Validations.siElementMoisExiste();
+        boolean c = Validations.siElementSoinExiste();
+        boolean d = Validations.siElementDateExiste();
+        boolean e = Validations.siElementMontantExiste();
+        if (a == false || b == false || c == false || d == false || e == false) {
+            objetJson = JSONErreur.enregistrer();
+        } else {
+
+            boolean f = Validations.validerContrat();
+
+            boolean g = Validations.validerNumeroClient();
+
+            boolean h = Validations.validerMois();
+
+            boolean i = Validations.validerNumeroSoin();
+
+            boolean j = Validations.validerSyntaxeMontant();
+
+            if (f == false || g == false || h == false || i == false || j == false) {
+
+                objetJson = JSONErreur.enregistrer();
+                System.out.println("Fichier enregistré");
+            } else {
+
+                objetJson = JSONRemboursements.enregistrer();
+                System.out.println("Fichier enregistré");
+            }
+
+        }
+            ecrire(objetJson, out);
     }
 
     //------------------------------------------------------------------------------  
@@ -32,4 +66,15 @@ public class Main {
         return reclamations;
     }
     //------------------------------------------------------------------------------
+    
+       public static void ecrire(JSONObject order, BufferedWriter out) {
+        try {
+
+            out.write(order.toString());
+
+            out.close();
+
+        } catch (IOException e) {
+        }
+    }
 }

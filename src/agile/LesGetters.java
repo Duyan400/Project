@@ -31,8 +31,8 @@ public class LesGetters {
     }
 
     public static List<String> getSoins() throws JSONException, Exception {
-
         List<String> liste = new ArrayList();
+        
         try {
             JSONArray lesReclamations = Main.parserJson(Main.entree).getJSONArray("reclamations");
             for (int i = 0; i < lesReclamations.size(); i++) {
@@ -48,8 +48,8 @@ public class LesGetters {
     }
 
     public static List<String> getDates() throws Exception {
-
         List<String> liste = new ArrayList();
+        
         try {
             JSONArray lesReclamations = Main.parserJson(Main.entree).getJSONArray("reclamations");
             for (int i = 0; i < lesReclamations.size(); i++) {
@@ -63,8 +63,8 @@ public class LesGetters {
     }
 
     public static List<String> getMontants() throws Exception {
-
         List<String> liste = new ArrayList();
+        
         try {
             JSONArray lesReclamations = Main.parserJson(Main.entree).getJSONArray("reclamations");
             for (int i = 0; i < lesReclamations.size(); i++) {

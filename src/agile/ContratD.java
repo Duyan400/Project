@@ -3,7 +3,6 @@ package agile;
 public class ContratD {
     
     public static int calculContratD(int soin , int montant ){
-        
         int remboursement = 0 ; 
         
         if (soin == 0) {
@@ -14,14 +13,14 @@ public class ContratD {
             }
         }
         if (soin == 100) {
-             remboursement = Dollar.diviser(montant, 100);
+            remboursement = Dollar.diviser(montant, 100);
             remboursement = Dollar.multiplier(remboursement, 100);
             if (remboursement > 7500) {
                 remboursement = 7500;
             }
         }
         if (soin == 150) {
-             remboursement = Dollar.diviser(montant, 100);
+            remboursement = Dollar.diviser(montant, 100);
             remboursement = Dollar.multiplier(remboursement, 100);
             if (remboursement > 15000) {
                 remboursement = 15000;
@@ -54,14 +53,14 @@ public class ContratD {
             remboursement = Dollar.multiplier(remboursement, 100);
         }
         if (soin == 600) {
-             remboursement = Dollar.diviser(montant, 100);
+            remboursement = Dollar.diviser(montant, 100);
             remboursement = Dollar.multiplier(remboursement, 100);
             if (remboursement > 10000) {
                 remboursement = 10000;
             }
         }
         if (soin == 700) {
-             remboursement = Dollar.diviser(montant, 100);
+            remboursement = Dollar.diviser(montant, 100);
             remboursement = Dollar.multiplier(remboursement, 100);
             if (remboursement > 9000) {
                 remboursement = 9000;
@@ -71,8 +70,3 @@ public class ContratD {
         return remboursement;
     }
 }
-        
-        
-    
-    
-

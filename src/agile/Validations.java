@@ -11,7 +11,6 @@ public class Validations {
     }
 
     public static boolean siElementSoinExiste() throws Exception {
-
         int nbReclamations = (Main.parserJson(Main.entree)).getJSONArray("reclamations").size();
         int nbSoins = LesGetters.getSoins().size();
         if (nbSoins != nbReclamations) {
@@ -22,7 +21,6 @@ public class Validations {
     }
 
     public static boolean siElementDateExiste() throws Exception {
-
         int nbReclamations = (Main.parserJson(Main.entree)).getJSONArray("reclamations").size();
         int nbDates = LesGetters.getDates().size();
         if (nbDates != nbReclamations) {
@@ -33,7 +31,6 @@ public class Validations {
     }
 
     public static boolean siElementMontantExiste() throws Exception {
-
         int nbReclamations = (Main.parserJson(Main.entree)).getJSONArray("reclamations").size();
         int nbMontants = LesGetters.getMontants().size();
         if (nbMontants != nbReclamations) {
@@ -143,13 +140,12 @@ public class Validations {
                 date2 = date2 + date.charAt(i);
             }
             if (date2.equals(LesGetters.getMois())) {
-                compteur = compteur + 1;
+                compteur ++;
             }
         }
         if (compteur == LesGetters.getDates().size()) {
             return true;
-        } else {
-            return false;
-        }
+        } 
+        return false;
     }
 }
