@@ -1,11 +1,10 @@
 package agile;
 
-
 public class ContratA {
-    
-    public static int calculContratA(int soin, int montant){
+
+    public static int calculContratA(int soin, int montant) {
         int remboursement = 0;
-        
+
         if (soin == 0 || soin == 200 || soin == 500) {
             remboursement = Dollar.diviser(montant, 100);
             remboursement = Dollar.multiplier(remboursement, 25);
@@ -24,14 +23,13 @@ public class ContratA {
         }
         if (soin == 400 || soin == 700 || (soin >= 300 && soin <= 399)) {
             remboursement = Dollar.diviser(montant, 100);
-            remboursement = Dollar.multiplier(remboursement, 0);    // POURQUOI DIVISE-T-ON PAR 100 SI PAR APRES ON MULTIPLIE PAR 0..?? SAME PLUS HAUT
+            remboursement = Dollar.multiplier(remboursement, 0);
         }
         if (soin == 600) {
             remboursement = Dollar.diviser(montant, 100);
             remboursement = Dollar.multiplier(remboursement, 40);
         }
-        
+
         return remboursement;
     }
-    
 }

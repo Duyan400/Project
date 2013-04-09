@@ -3,8 +3,8 @@ package agile;
 import net.sf.json.JSONObject;
 
 public class JSONErreur {
-    
-     public static JSONObject enregistrer() throws Exception {
+
+    public static JSONObject enregistrer() throws Exception {
         JSONObject jsonErreur = new JSONObject();
 
         if (Validations.siElementDossierExiste() == false) {
@@ -17,7 +17,7 @@ public class JSONErreur {
             jsonErreur.put("message", "L'élément 'date' est manquant à une des réclamations.");
         } else if (Validations.siElementMontantExiste() == false) {
             jsonErreur.put("message", "L'élément 'montant' est manquant à une des réclamations.");
-        } else {                                                        // élément 'code' manquant à ajouter
+        } else {
             if (Validations.validerContrat() == false) {
                 jsonErreur.put("message", "Le type du contrat est incorrect.");
             }
@@ -34,7 +34,6 @@ public class JSONErreur {
                 jsonErreur.put("message", "Il y a un problème dans la syntaxe du montant.");
             }
         }
-
         return jsonErreur;
     }
 }

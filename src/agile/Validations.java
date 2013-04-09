@@ -62,7 +62,7 @@ public class Validations {
             return true;
         }
     }
-    
+
     public static boolean validerSyntaxeMontant() throws Exception {
         boolean resultat = false;
         for (String montant : LesGetters.getMontants()) {
@@ -70,38 +70,19 @@ public class Validations {
         }
         return resultat;
     }
-    
+
     public static boolean boucleValiderSyntaxeMontant(String montant) {
         if (montant.charAt(montant.length() - 1) != '$') {
             return false;
-        }
-        if (montant.charAt(montant.length() - 2) < '0' || montant.charAt(montant.length() - 2) > '9') {
+        } else if (montant.charAt(montant.length() - 2) < '0' || montant.charAt(montant.length() - 2) > '9') {
             return false;
-        }
-        if (montant.charAt(montant.length() - 3) < '0' || montant.charAt(montant.length() - 3) > '9') {
+        } else if (montant.charAt(montant.length() - 3) < '0' || montant.charAt(montant.length() - 3) > '9') {
             return false;
+        } else {
+            return true;
         }
-        if (montant.charAt(montant.length() - 4) != '.' || montant.charAt(montant.length() - 4) != ',') {
-            return false;
-        }
-        if (montant.charAt(montant.length() - 5) < '0' || montant.charAt(montant.length() - 3) > '9') {
-            return false;
-        }
-        if (!boucleValiderSiChiffresDansMontant(montant)) {
-            return false;
-        }
-        return true;
     }
-    
-    public static boolean boucleValiderSiChiffresDansMontant(String montant) {
-        for (int i = 0; i < montant.length()-5; i++) {
-            if (montant.charAt(i) < '0' || montant.charAt(i) > '9') {
-                return false;
-            }
-        }
-        return true;
-    }
-    
+
     public static boolean validerNumeroSoin() throws Exception {
         int j = 300;
         int compteur = 0;
@@ -140,12 +121,12 @@ public class Validations {
                 date2 = date2 + date.charAt(i);
             }
             if (date2.equals(LesGetters.getMois())) {
-                compteur ++;
+                compteur++;
             }
         }
         if (compteur == LesGetters.getDates().size()) {
             return true;
-        } 
+        }
         return false;
     }
 }

@@ -39,15 +39,11 @@ public class Dollar {
         String montantFinalString = new String();
         int dollar = montant / 100;
         int cents = montant % 100;
-        if (cents == 0)
-        {
-           montantFinalString = dollar + "." + cents + "0";
-        }
-        else
-        {
+        if (cents == 0) {
+            montantFinalString = dollar + "." + cents + "0";
+        } else {
             montantFinalString = dollar + "." + cents;
         }
-        
         return montantFinalString;
     }
 }

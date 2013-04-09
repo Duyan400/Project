@@ -8,7 +8,6 @@ public class ContratE {
         if (soin == 0) {
             remboursement = Dollar.diviser(montant, 100);
             remboursement = Dollar.multiplier(remboursement, 15);
-            
         }
         if (soin == 100) {
             remboursement = Dollar.diviser(montant, 100);
@@ -55,7 +54,6 @@ public class ContratE {
             remboursement = Dollar.diviser(montant, 100);
             remboursement = Dollar.multiplier(remboursement, 22);
         }
-
         return remboursement;
     }
 }

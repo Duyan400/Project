@@ -43,6 +43,8 @@ public class CalculRemboursements {
             }
 
         }
+        
+        MaximumMensuel.maxMensuel(tabRemboursements, LesGetters.getSoins());
        
         return tabRemboursements;
     }

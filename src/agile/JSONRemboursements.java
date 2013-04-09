@@ -4,9 +4,8 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 public class JSONRemboursements {
-    
-     public static JSONObject enregistrer() throws Exception {
 
+    public static JSONObject enregistrer() throws Exception {
 
         String totalRemb = CalculTotalRemboursements.totalRemboursements();
         String dossierClient = LesGetters.getDossier();
@@ -28,11 +27,9 @@ public class JSONRemboursements {
             remboursements.add(objetJson2);
             objetJson.put("remboursements", remboursements);
         }
-        
-        objetJson.put("total", CalculTotalRemboursements.totalRemboursements() );
+
+        objetJson.put("total", CalculTotalRemboursements.totalRemboursements());
 
         return objetJson;
     }
-    
-    
 }
