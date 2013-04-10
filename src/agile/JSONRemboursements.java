@@ -7,7 +7,7 @@ public class JSONRemboursements {
 
     public static JSONObject enregistrer() throws Exception {
 
-        String totalRemb = CalculTotalRemboursements.totalRemboursements();
+        
         String dossierClient = LesGetters.getDossier();
         String numeroMois = LesGetters.getMois();
         String[] tab = CalculRemboursements.calculerRemboursements();

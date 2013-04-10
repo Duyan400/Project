@@ -20,14 +20,13 @@ public class Main {
         JSONObject objetJson = new JSONObject();
         BufferedWriter out = Main.ouvreFichierPourEcriture(sortie);
 
-        
-        
         boolean a = Validations.siElementDossierExiste();
         boolean b = Validations.siElementMoisExiste();
         boolean c = Validations.siElementSoinExiste();
         boolean d = Validations.siElementDateExiste();
         boolean e = Validations.siElementMontantExiste();
-        if (a == false || b == false || c == false || d == false || e == false) {
+        boolean x = Validations.siElementCodeExiste();
+        if (a == false || b == false || c == false || d == false || e == false || x == false) {
             objetJson = JSONErreur.enregistrer();
         } else {
 
