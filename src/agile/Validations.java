@@ -133,7 +133,6 @@ public class Validations {
             }
             if (code.charAt(0) == 'E' || code.charAt(0) == 'H') {
                 String chaine = code.substring(1);
-                chaine = code.substring(1);
                 boolean resultat = (validerChiffresCode(chaine));
                 if (resultat == true) {
                     compteur++;
