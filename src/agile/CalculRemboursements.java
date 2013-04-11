@@ -18,33 +18,33 @@ public class CalculRemboursements {
             switch (LesGetters.getContrat()) {
                 case 'A':
                     remboursement = ContratA.calculContratA(numeroSoinEntier, Dollar.transformerEnEntier(listeDeMontants.get(z)));
-                    tabRemboursements[z] = Dollar.trasnformerEnString(remboursement);
+                    tabRemboursements[z] = Dollar.transformerEnString(remboursement);
                     break;
 
                 case 'B':
                     remboursement = ContratB.calculContratB(numeroSoinEntier, Dollar.transformerEnEntier(listeDeMontants.get(z)));
-                    tabRemboursements[z] = Dollar.trasnformerEnString(remboursement);
+                    tabRemboursements[z] = Dollar.transformerEnString(remboursement);
                     break;
 
                 case 'C':
                     remboursement = ContratC.calculContratC(numeroSoinEntier, Dollar.transformerEnEntier(listeDeMontants.get(z)));
-                    tabRemboursements[z] = Dollar.trasnformerEnString(remboursement);
+                    tabRemboursements[z] = Dollar.transformerEnString(remboursement);
                     break;
 
                 case 'D':
                     remboursement = ContratD.calculContratD(numeroSoinEntier, Dollar.transformerEnEntier(listeDeMontants.get(z)));
-                    tabRemboursements[z] = Dollar.trasnformerEnString(remboursement);
+                    tabRemboursements[z] = Dollar.transformerEnString(remboursement);
                     break;
 
                 case 'E':
                     remboursement = ContratE.calculContratE(numeroSoinEntier, Dollar.transformerEnEntier(listeDeMontants.get(z)));
-                    tabRemboursements[z] = Dollar.trasnformerEnString(remboursement);
+                    tabRemboursements[z] = Dollar.transformerEnString(remboursement);
                     break;
             }
 
         }
         
-        MaximumMensuel.maxMensuel(tabRemboursements, LesGetters.getSoins());
+        MaximumMensuel.maxMensuel(tabRemboursements);
        
         return tabRemboursements;
     }

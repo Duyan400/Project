@@ -10,7 +10,7 @@ public class CalculTotalRemboursements {
         for (int i = 0; i < tab.length; i++) {
             total = total + Dollar.transformerEnEntier(tab[i]);
         }
-        totalString = Dollar.trasnformerEnString(total);
+        totalString = Dollar.transformerEnString(total);
         return totalString;
     }
 }

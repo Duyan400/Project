@@ -176,4 +176,40 @@ public class Validations {
         }
         return false;
     }
+
+    public static boolean validerUnSeulAdherant() throws Exception {
+
+        int compteur = 0;
+
+        for (int i = 0; i < LesGetters.getCodes().size(); i++) {
+            String leCode = LesGetters.getCodes().get(i);
+            if (leCode.equals("A")) {
+                compteur++;
+            }
+        }
+
+        if (compteur == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+     public static boolean validerUnSeulConjoint() throws Exception {
+
+        int compteur = 0;
+
+        for (int i = 0; i < LesGetters.getCodes().size(); i++) {
+            String leCode = LesGetters.getCodes().get(i);
+            if (leCode.equals("C")) {
+                compteur++;
+            }
+        }
+
+        if (compteur == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

@@ -10,42 +10,35 @@ public class ContratB {
             remboursement = Dollar.multiplier(remboursement, 25);
         }
         if (soin == 100) {
-            remboursement = Dollar.diviser(montant, 100);
-            remboursement = Dollar.multiplier(remboursement, 50);
+            remboursement = Dollar.diviser(montant, 2);
             if (remboursement > 5000) {
                 remboursement = 5000;
             }
         }
         if (soin == 150) {
-            remboursement = Dollar.diviser(montant, 100);
-            remboursement = Dollar.multiplier(remboursement, 0);
+            remboursement = 0;
         }
         if (soin == 175) {
             remboursement = Dollar.diviser(montant, 100);
             remboursement = Dollar.multiplier(remboursement, 75);
         }
         if (soin == 200) {
-            remboursement = Dollar.diviser(montant, 100);
-            remboursement = Dollar.multiplier(remboursement, 100);
+            remboursement = montant;
         }
         if (soin >= 300 && soin <= 399) {
-            remboursement = Dollar.diviser(montant, 100);
-            remboursement = Dollar.multiplier(remboursement, 50);
+            remboursement = Dollar.diviser(montant, 2);
         }
         if (soin == 400) {
-            remboursement = Dollar.diviser(montant, 100);
-            remboursement = Dollar.multiplier(remboursement, 0);
+            remboursement = 0;
         }
         if (soin == 500) {
-            remboursement = Dollar.diviser(montant, 100);
-            remboursement = Dollar.multiplier(remboursement, 50);
-            if (remboursement > 50) {
+            remboursement = Dollar.diviser(montant, 2);
+            if (remboursement > 5000) {
                 remboursement = 5000;
             }
         }
         if (soin == 600) {
-            remboursement = Dollar.diviser(montant, 100);
-            remboursement = Dollar.multiplier(remboursement, 100);
+            remboursement = montant;
         }
         if (soin == 700) {
             remboursement = Dollar.diviser(montant, 100);

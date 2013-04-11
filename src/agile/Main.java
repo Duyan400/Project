@@ -25,34 +25,28 @@ public class Main {
         boolean c = Validations.siElementSoinExiste();
         boolean d = Validations.siElementDateExiste();
         boolean e = Validations.siElementMontantExiste();
-        boolean x = Validations.siElementCodeExiste();
-        if (a == false || b == false || c == false || d == false || e == false || x == false) {
+        boolean f = Validations.siElementCodeExiste();
+        boolean g = Validations.validerUnSeulAdherant();
+        boolean h = Validations.validerUnSeulConjoint();
+        boolean i = Validations.validerContrat();
+        boolean j = Validations.validerNumeroClient();
+        boolean k = Validations.validerMois();
+        boolean l = Validations.validerNumeroSoin();
+        boolean m = Validations.validerSyntaxeMontant();
+        boolean n = Validations.validerCode();
+
+        if (a == false || b == false || c == false || d == false || e == false || f == false || g == false) {
             objetJson = JSONErreur.enregistrer();
-        } else {
-
-            boolean f = Validations.validerContrat();
-
-            boolean g = Validations.validerNumeroClient();
-
-            boolean h = Validations.validerMois();
-
-            boolean i = Validations.validerNumeroSoin();
-
-            boolean j = Validations.validerSyntaxeMontant();
-            
-            boolean k = Validations.validerCode();
-
-            if (f == false || g == false || h == false || i == false || j == false || k == false) {
-
-                objetJson = JSONErreur.enregistrer();
-                System.out.println("Fichier enregistré");
-            } else {
-
-                objetJson = JSONRemboursements.enregistrer();
-                System.out.println("Fichier enregistré");
-            }
-
+            System.out.println("Fichier enregistré");
         }
+        else if (h == false || i == false || j == false || k == false || l == false || m == false || n == false) {
+            objetJson = JSONErreur.enregistrer();
+            System.out.println("Fichier enregistré");
+        } else {
+            objetJson = JSONRemboursements.enregistrer();
+            System.out.println("Fichier enregistré");
+        }
+
         ecrire(objetJson, out);
     }
 

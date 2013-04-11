@@ -6,7 +6,7 @@ public class Dollar {
         montant = montant.replace(",", "");
         montant = montant.replace(".", "");
         montant = montant.replace("$", "");
-        Integer montantEntier = Integer.parseInt(montant);
+        int montantEntier = Integer.parseInt(montant);
         return montantEntier;
     }
 
@@ -35,7 +35,7 @@ public class Dollar {
         return nombre;
     }
 
-    public static String trasnformerEnString(int montant) {
+    public static String transformerEnString(int montant) {
         String montantFinalString = new String();
         int dollar = montant / 100;
         int cents = montant % 100;
