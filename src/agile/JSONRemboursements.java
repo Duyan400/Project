@@ -29,7 +29,7 @@ public class JSONRemboursements {
             objetJson.put("remboursements", remboursements);
         }
 
-        objetJson.put("total", CalculTotalRemboursements.totalRemboursements());
+        //objetJson.put("total", CalculTotalRemboursements.totalRemboursements());
 
         return objetJson;
     }

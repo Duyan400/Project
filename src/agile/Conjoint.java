@@ -9,51 +9,56 @@ public class Conjoint {
     private int maxSoin600;
 
     public Conjoint() {
-        this.maxSoin100 = 25000;
-        this.maxSoin175 = 20000;
-        this.maxSoin200 = 25000;
-        this.maxSoin500 = 15000;
-        this.maxSoin600 = 30000;
+        maxSoin100 = 25000;
+        maxSoin175 = 20000;
+        maxSoin200 = 25000;
+        maxSoin500 = 15000;
+        maxSoin600 = 30000;
     }
 
+   
     public String calculMaximum(String soin, String montant) {
 
         String resultat = new String();
         switch (soin) {
             case "100":
-                if (this.maxSoin100 - Dollar.transformerEnEntier(montant) < 0) {
-                    resultat = Dollar.transformerEnString(this.maxSoin100);
+                if (maxSoin100 - Dollar.transformerEnEntier(montant) < 0) {
+                    resultat = Dollar.transformerEnString(maxSoin100);
                 } else {
-                    this.maxSoin100 = this.maxSoin100 - Dollar.transformerEnEntier(montant);
-
+                    maxSoin100 = maxSoin100 - Dollar.transformerEnEntier(montant);
+                    resultat = montant;
                 }
                 break;
             case "175":
-                if (this.maxSoin175 - Dollar.transformerEnEntier(montant) < 0) {
-                    resultat = Dollar.transformerEnString(this.maxSoin175);
+                if (maxSoin175 - Dollar.transformerEnEntier(montant) < 0) {
+                    resultat = Dollar.transformerEnString(maxSoin175);
                 } else {
-                    this.maxSoin175 = this.maxSoin175 - Dollar.transformerEnEntier(montant);
+                    maxSoin175 = maxSoin175 - Dollar.transformerEnEntier(montant);
+                    resultat = montant;
                 }
                 break;
             case "200":
-                if (this.maxSoin200 - Dollar.transformerEnEntier(montant) < 0) {
-                    resultat = Dollar.transformerEnString(this.maxSoin200);
+                if (maxSoin200 - Dollar.transformerEnEntier(montant) < 0) {
+                    resultat = Dollar.transformerEnString(maxSoin200);
                 } else {
-                    this.maxSoin200 = this.maxSoin200 - Dollar.transformerEnEntier(montant);
+                    maxSoin200 = maxSoin200 - Dollar.transformerEnEntier(montant);
+                    resultat = montant;
                 }
                 break;
             case "500":
-                if (this.maxSoin500 - Dollar.transformerEnEntier(montant) < 0) {
-                    resultat = Dollar.transformerEnString(this.maxSoin500);
+                if (maxSoin500 - Dollar.transformerEnEntier(montant) < 0) {
+                    resultat = Dollar.transformerEnString(maxSoin500);
                 } else {
-                    this.maxSoin500 = this.maxSoin500 - Dollar.transformerEnEntier(montant);
+                    maxSoin500 = maxSoin500 - Dollar.transformerEnEntier(montant);
+                    resultat = montant;
                 }
                 break;
             case "600":
                 if (maxSoin600 - Dollar.transformerEnEntier(montant) < 0) {
-                    resultat = Dollar.transformerEnString(this.maxSoin600);
+                    resultat = Dollar.transformerEnString(maxSoin600);
                 } else {
-                    this.maxSoin600 = this.maxSoin600 - Dollar.transformerEnEntier(montant);
+                    maxSoin600 = maxSoin600 - Dollar.transformerEnEntier(montant);
+                    resultat = montant;
                 }
                 break;
         }
