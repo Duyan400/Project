@@ -188,10 +188,10 @@ public class Validations {
             }
         }
 
-        if (compteur == 1) {
-            return true;
-        } else {
+        if (compteur > 1) {
             return false;
+        } else {
+            return true;
         }
     }
     
@@ -206,10 +206,10 @@ public class Validations {
             }
         }
 
-        if (compteur == 1) {
-            return true;
-        } else {
+        if (compteur > 1) {
             return false;
+        } else {
+            return true;
         }
     }
 }

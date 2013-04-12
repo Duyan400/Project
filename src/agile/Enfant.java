@@ -18,6 +18,10 @@ public class Enfant {
         this.code = "";
     }
     
+    public int getMaxSoin100() {
+        return this.maxSoin100;
+    }
+    
     public void setMaxSoin100(int nouveauMax) {
         this.maxSoin100 = nouveauMax;
     }
@@ -53,8 +57,10 @@ public class Enfant {
             case "100":
                 if (this.maxSoin100 - Dollar.transformerEnEntier(montant) < 0) {
                     resultat = Dollar.transformerEnString(this.maxSoin100);
+                    
                 } else {
                     this.maxSoin100 = this.maxSoin100 - Dollar.transformerEnEntier(montant);
+                    resultat = montant;
 
                 }
                 break;
@@ -63,6 +69,7 @@ public class Enfant {
                     resultat = Dollar.transformerEnString(this.maxSoin175);
                 } else {
                     this.maxSoin175 = this.maxSoin175 - Dollar.transformerEnEntier(montant);
+                    resultat = montant;
                 }
                 break;
             case "200":
@@ -70,6 +77,7 @@ public class Enfant {
                     resultat = Dollar.transformerEnString(this.maxSoin200);
                 } else {
                     this.maxSoin200 = this.maxSoin200 - Dollar.transformerEnEntier(montant);
+                    resultat = montant;
                 }
                 break;
             case "500":
@@ -77,6 +85,7 @@ public class Enfant {
                     resultat = Dollar.transformerEnString(this.maxSoin500);
                 } else {
                     this.maxSoin500 = this.maxSoin500 - Dollar.transformerEnEntier(montant);
+                    resultat = montant;
                 }
                 break;
             case "600":
@@ -84,6 +93,7 @@ public class Enfant {
                     resultat = Dollar.transformerEnString(this.maxSoin600);
                 } else {
                     this.maxSoin600 = this.maxSoin600 - Dollar.transformerEnEntier(montant);
+                    resultat = montant;
                 }
                 break;
         }
