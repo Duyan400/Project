@@ -7,7 +7,7 @@ public class JSONRemboursements {
 
     public static JSONObject enregistrer() throws Exception {
 
-        
+
         String dossierClient = LesGetters.getDossier();
         String numeroMois = LesGetters.getMois();
         String[] tab = CalculRemboursements.calculerRemboursements();
@@ -29,7 +29,7 @@ public class JSONRemboursements {
             objetJson.put("remboursements", remboursements);
         }
 
-        //objetJson.put("total", CalculTotalRemboursements.totalRemboursements());
+        objetJson.put("total", CalculTotalRemboursements.totalRemboursements());
 
         return objetJson;
     }

@@ -16,7 +16,6 @@ public class Conjoint {
         maxSoin600 = 30000;
     }
 
-   
     public String calculMaximum(String soin, String montant) {
 
         String resultat = new String();

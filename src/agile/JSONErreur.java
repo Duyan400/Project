@@ -24,19 +24,19 @@ public class JSONErreur {
         } else if (Validations.validerNumeroClient() == false) {
             jsonErreur.put("message", "Le numéro du client est invalide.");
         } else if (Validations.validerCode() == false) {
-           jsonErreur.put("message", "Le code d'une des réclamations est incorrect.");
+            jsonErreur.put("message", "Le code d'une des réclamations est incorrect.");
         } else if (Validations.validerMois() == false) {
-           jsonErreur.put("message", "Les dates entrées sont incorrectes.");
+            jsonErreur.put("message", "Les dates entrées sont incorrectes.");
         } else if (Validations.validerNumeroSoin() == false) {
-           jsonErreur.put("message", "Un numero de soin est incorrect.");
+            jsonErreur.put("message", "Un numero de soin est incorrect.");
         } else if (Validations.validerSyntaxeMontant() == false) {
-           jsonErreur.put("message", "Il y a un problème dans la syntaxe du montant.");
+            jsonErreur.put("message", "Il y a un problème dans la syntaxe du montant.");
         } else if (Validations.validerUnSeulAdherant() == false) {
-           jsonErreur.put("message", "Un seul adhérant est permis par fiche de reclamations."); 
+            jsonErreur.put("message", "Un seul adhérant est permis par fiche de reclamations.");
         } else if (Validations.validerUnSeulConjoint() == false) {
             jsonErreur.put("message", "Un seul conjoint est permis par fiche de reclamations.");
         }
-        
+
         return jsonErreur;
     }
 }

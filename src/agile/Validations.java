@@ -194,8 +194,8 @@ public class Validations {
             return true;
         }
     }
-    
-     public static boolean validerUnSeulConjoint() throws Exception {
+
+    public static boolean validerUnSeulConjoint() throws Exception {
 
         int compteur = 0;
 

@@ -57,7 +57,7 @@ public class Enfant {
             case "100":
                 if (maxSoin100 - Dollar.transformerEnEntier(montant) < 0) {
                     resultat = Dollar.transformerEnString(maxSoin100);
-                    } else {
+                } else {
                     maxSoin100 = maxSoin100 - Dollar.transformerEnEntier(montant);
                     resultat = montant;
                 }
