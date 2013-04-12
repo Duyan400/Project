@@ -13,6 +13,7 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
+
         entree = args[0];
         sortie = args[1];
         String fichier = new String();
@@ -38,8 +39,7 @@ public class Main {
         if (a == false || b == false || c == false || d == false || e == false || f == false || g == false) {
             objetJson = JSONErreur.enregistrer();
             System.out.println("Fichier enregistré");
-        }
-        else if (h == false || i == false || j == false || k == false || l == false || m == false || n == false) {
+        } else if (h == false || i == false || j == false || k == false || l == false || m == false || n == false) {
             objetJson = JSONErreur.enregistrer();
             System.out.println("Fichier enregistré");
         } else {
@@ -48,6 +48,9 @@ public class Main {
         }
 
         ecrire(objetJson, out);
+
+        
+
     }
 
     public static BufferedWriter ouvreFichierPourEcriture(String sortie) throws Exception {
@@ -70,5 +73,6 @@ public class Main {
 
         } catch (IOException e) {
         }
+
     }
 }

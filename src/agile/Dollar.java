@@ -10,16 +10,6 @@ public class Dollar {
         return montantEntier;
     }
 
-    public static int additionner(int nombre, int additionneur) {
-        nombre = nombre + additionneur;
-        return nombre;
-    }
-
-    public static int soustraire(int nombre, int soustracteur) {
-        nombre = nombre - soustracteur;
-        return nombre;
-    }
-
     public static int multiplier(int nombre, int multiplicateur) {
         nombre = nombre * multiplicateur;
         return nombre;
