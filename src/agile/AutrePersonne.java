@@ -1,6 +1,6 @@
 package agile;
 
-public class Enfant {
+public class AutrePersonne {
 
     private int maxSoin100;
     private int maxSoin175;
@@ -9,7 +9,7 @@ public class Enfant {
     private int maxSoin600;
     private String code;
 
-    public Enfant() {
+    public AutrePersonne() {
         maxSoin100 = 25000;
         maxSoin175 = 20000;
         maxSoin200 = 25000;
@@ -17,8 +17,6 @@ public class Enfant {
         maxSoin600 = 30000;
         code = "";
     }
-
-  
 
     public void setMaxSoin100(int nouveauMax) {
         maxSoin100 = nouveauMax;

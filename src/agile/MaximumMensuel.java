@@ -8,7 +8,11 @@ public class MaximumMensuel {
 
         ArrayList<String> codesEnfants = new ArrayList();
         ArrayList<Enfant> lesEnfants = new ArrayList();
-        int compteur = 0;
+        
+        ArrayList<String> codesAutres = new ArrayList();
+        ArrayList<AutrePersonne> lesAutres = new ArrayList();
+        int compteurEnfants = 0;
+        int compteurAutres = 0;
 
         for (int i = 0; i < tab.length; i++) {
 
@@ -43,15 +47,42 @@ public class MaximumMensuel {
                     if (codesEnfants.contains(leCode)) {
                         for (int k = 0; k < lesEnfants.size(); k++) {
                             if (lesEnfants.get(k).getCode().equals(leCode)) {
-                                compteur = k;
+                                compteurEnfants = k;
                             }
                         }
 
-                        String resultat4 = lesEnfants.get(compteur).calculMaximum(leSoin, leMontant);
+                        String resultat4 = lesEnfants.get(compteurEnfants).calculMaximum(leSoin, leMontant);
 
                         tab[i] = resultat4;
+                 //----------------------------------------------------------------------
+                    }
+                case 'H':
+                    int leMontantEnInt = Dollar.transformerEnEntier(leMontant);
+                    int laMoitieDuMontant = Dollar.diviser(leMontantEnInt, 2);
+                    String leMontantDivisePar2 = Dollar.transformerEnString(laMoitieDuMontant);
+                    
+                     if (!codesAutres.contains(leCode)) {
+                        codesAutres.add(leCode);
+                        AutrePersonne autrePersonne = new AutrePersonne();
+                        String resultat5 = autrePersonne.calculMaximum(leSoin, leMontantDivisePar2);
+                        tab[i] = resultat5;
+                        lesAutres.add(autrePersonne);
+                        break;
+                    }
+
+                    if (codesAutres.contains(leCode)) {
+                        for (int k = 0; k < lesAutres.size(); k++) {
+                            if (lesAutres.get(k).getCode().equals(leCode)) {
+                                compteurAutres = k;
+                            }
+                        }
+
+                        String resultat6 = lesAutres.get(compteurAutres).calculMaximum(leSoin, leMontantDivisePar2);
+
+                        tab[i] = resultat6;
 
                     }
+                    
             }
 
         }
