@@ -1,0 +1,143 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package agile;
+
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+/**
+ *
+ * @author AmineZ
+ */
+public class ValidationsTest {
+    
+    public ValidationsTest() {
+    }
+    
+    @BeforeClass
+    public static void setUpClass() {
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
+    }
+    
+    @Before
+    public void setUp() {
+    }
+    
+    @After
+    public void tearDown() {
+    }
+
+    @Test
+    public void testSiElementDossierExiste() throws Exception {
+    assertTrue(Validations.siElementDossierExiste()==true);
+    }
+
+    @Test
+    public void testSiElementMoisExiste() throws Exception {
+        assertTrue(Validations.siElementMoisExiste()==true);
+    }
+
+    @Test
+    public void testSiElementSoinExiste() throws Exception {
+    assertTrue(Validations.siElementSoinExiste()==true);
+    
+    }
+
+    @Test
+    public void testSiElementCodeExiste() throws Exception {
+        assertTrue(Validations.siElementCodeExiste()==true);
+    }
+
+    @Test
+    public void testSiElementDateExiste() throws Exception {
+        assertTrue(Validations.siElementDateExiste()==true);
+    }
+
+    @Test
+    public void testSiElementMontantExiste() throws Exception {
+ assertTrue(Validations.siElementMontantExiste()==true);
+    }
+
+    @Test
+    public void testValiderNumeroClient() throws Exception {
+   assertTrue(Validations.validerNumeroClient()==(LesGetters.getNumeroClient().equals("160323")));
+    }
+
+    @Test
+    public void testValiderContrat() throws Exception {
+       assertTrue(Validations.validerNumeroClient()==(LesGetters.getContrat() == 'C'));
+    }
+
+    @Test
+    public void testValiderSyntaxeMontant() throws Exception {
+ 
+    }
+
+    @Test
+    public void testBoucleValiderSyntaxeMontant() {
+        System.out.println("boucleValiderSyntaxeMontant");
+        String montant = "";
+        boolean expResult = false;
+        boolean result = Validations.boucleValiderSyntaxeMontant(montant);
+        assertEquals(expResult, result);
+        fail("The test case is a prototype.");
+    }
+
+    @Test
+    public void testValiderNumeroSoin() throws Exception {
+        System.out.println("validerNumeroSoin");
+        boolean expResult = false;
+        boolean result = Validations.validerNumeroSoin();
+        assertEquals(expResult, result);
+        fail("The test case is a prototype.");
+    }
+
+    @Test
+    public void testValiderCode() throws Exception {
+        System.out.println("validerCode");
+        boolean expResult = false;
+        boolean result = Validations.validerCode();
+        assertEquals(expResult, result);
+        fail("The test case is a prototype.");
+    }
+
+    @Test
+    public void testValiderChiffresCode() throws Exception {
+        System.out.println("validerChiffresCode");
+        String chaine = "";
+        boolean expResult = false;
+        boolean result = Validations.validerChiffresCode(chaine);
+        assertEquals(expResult, result);
+        fail("The test case is a prototype.");
+    }
+
+    @Test
+    public void testValiderMois() throws Exception {
+        System.out.println("validerMois");
+        boolean expResult = false;
+        boolean result = Validations.validerMois();
+        assertEquals(expResult, result);
+        fail("The test case is a prototype.");
+    }
+
+    @Test
+    public void testValiderUnSeulAdherant() throws Exception {
+    assertTrue(Validations.validerUnSeulAdherant()==(LesGetters.getCodes().contains("A")));
+    }
+
+    @Test
+    public void testValiderUnSeulConjoint() throws Exception {
+      assertTrue(Validations.validerUnSeulAdherant()==(LesGetters.getCodes().contains("C")));
+    }
+}
