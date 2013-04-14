@@ -1,0 +1,124 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package agile;
+
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+/**
+ *
+ * @author AmineZ
+ */
+public class ValidationsTest {
+    
+    public ValidationsTest() {
+    }
+    
+    @BeforeClass
+    public static void setUpClass() {
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
+    }
+    
+    @Before
+    public void setUp() {
+    }
+    
+    @After
+    public void tearDown() {
+    }
+
+    @Test
+    public void testSiElementDossierExiste() throws Exception {
+    assertTrue(Validations.siElementDossierExiste()==true);
+    }
+
+    @Test
+    public void testSiElementMoisExiste() throws Exception {
+        assertTrue(Validations.siElementMoisExiste()==true);
+    }
+
+    @Test
+    public void testSiElementSoinExiste() throws Exception {
+    assertTrue(Validations.siElementSoinExiste()==true);
+    
+    }
+
+    @Test
+    public void testSiElementCodeExiste() throws Exception {
+        assertTrue(Validations.siElementCodeExiste()==true);
+    }
+
+    @Test
+    public void testSiElementDateExiste() throws Exception {
+        assertTrue(Validations.siElementDateExiste()==true);
+    }
+
+    @Test
+    public void testSiElementMontantExiste() throws Exception {
+ assertTrue(Validations.siElementMontantExiste()==true);
+    }
+
+    @Test
+    public void testValiderNumeroClient() throws Exception {
+   assertTrue(Validations.validerNumeroClient()==(LesGetters.getNumeroClient().equals("160323")));
+    }
+
+    @Test
+    public void testValiderContrat() throws Exception {
+       assertTrue(Validations.validerNumeroClient()==(LesGetters.getContrat() == 'C'));
+    }
+
+    @Test
+    public void testValiderSyntaxeMontant() throws Exception {
+ 
+    }
+
+    @Test
+    public void testBoucleValiderSyntaxeMontant() throws Exception {
+     assertTrue(Validations.validerSyntaxeMontant()==false);
+    }
+
+    @Test
+    public void testValiderNumeroSoin() throws Exception {
+      assertTrue(Validations.validerNumeroSoin()==(LesGetters.getSoins().contains("175")));
+    }
+
+    @Test
+    public void testValiderCode() throws Exception {
+     assertTrue(Validations.validerCode()==(LesGetters.getCodes().contains("E")));
+    }
+
+    @Test
+    public void testValiderChiffresCode() throws Exception {
+   assertTrue(Validations.validerChiffresCode("2"));
+    }
+
+    @Test
+    public void testValiderMois() throws Exception {
+       assertTrue(Validations.validerMois()==(LesGetters.getDates().contains("2013-03-02")));
+    }
+
+    @Test
+    public void testValiderUnSeulAdherant() throws Exception {
+    assertTrue(Validations.validerUnSeulAdherant()==(LesGetters.getCodes().contains("A")));
+    }
+
+    @Test
+    public void testValiderUnSeulConjoint() throws Exception {
+      assertTrue(Validations.validerUnSeulAdherant()==(LesGetters.getCodes().contains("C")));
+    }
+
+    
+    }
+}
