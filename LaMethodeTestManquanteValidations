@@ -1,0 +1,4 @@
+@Test
+    public void testBoucleValiderSyntaxeMontant() throws Exception {
+        assertTrue(Validations.boucleValiderSyntaxeMontant("100.00$") == false);
+    }
