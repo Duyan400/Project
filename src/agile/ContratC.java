@@ -8,16 +8,13 @@ public class ContratC {
         if (soin == 100) {
             remboursement = Dollar.diviser(montant, 100);
             remboursement = Dollar.multiplier(remboursement, 95);
-        }
-        if (soin == 150) {
+        } else if (soin == 150) {
             remboursement = Dollar.diviser(montant, 100);
             remboursement = Dollar.multiplier(remboursement, 85);
-        }
-        if (soin == 175) {
+        } else if (soin == 175) {
             remboursement = Dollar.diviser(montant, 100);
             remboursement = Dollar.multiplier(remboursement, 90);
-        }
-        if (soin == 600) {
+        } else if (soin == 600) {
             remboursement = Dollar.diviser(montant, 100);
             remboursement = Dollar.multiplier(remboursement, 75);
         } else {

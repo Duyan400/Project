@@ -21,7 +21,7 @@ public class ContratE {
             remboursement = Dollar.diviser(montant, 100);
             remboursement = Dollar.multiplier(remboursement, 25);
             if (remboursement > 2000) {
-                remboursement = 20;
+                remboursement = 2000;
             }
         }
         if (soin == 200) {

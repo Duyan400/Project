@@ -6,8 +6,10 @@ public class ContratB {
         int remboursement = 0;
 
         if (soin == 0) {
-            remboursement = Dollar.diviser(montant, 100);
-            remboursement = Dollar.multiplier(remboursement, 25);
+            remboursement = Dollar.diviser(montant, 2);
+            if (remboursement > 4000){
+                remboursement = 4000;
+            }
         }
         if (soin == 100) {
             remboursement = Dollar.diviser(montant, 2);

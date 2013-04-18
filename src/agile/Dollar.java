@@ -15,13 +15,23 @@ public class Dollar {
         return nombre;
     }
 
-    public static int diviser(int nombre, int diviseur) {
-        nombre = nombre / diviseur;
+    public static int diviser(int nombre, int diviseur) throws ArithmeticException {
+        try{
+            nombre = nombre / diviseur;
+        }catch (ArithmeticException e){
+            System.out.println("Division par zéro impossible ");
+        }
         return nombre;
     }
 
-    public static int modulo(int nombre, int moduleur) {
+    public static int modulo(int nombre, int moduleur) throws ArithmeticException {
+       try{
+        
         nombre = nombre % moduleur;
+       }catch(ArithmeticException e){
+           System.out.print("Modulo par zéro impossible");
+       }
+        
         return nombre;
     }
 

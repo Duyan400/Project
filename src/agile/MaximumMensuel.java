@@ -82,9 +82,7 @@ public class MaximumMensuel {
                         tab[i] = resultat6;
 
                     }
-                    
             }
-
         }
     }
 }

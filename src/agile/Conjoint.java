@@ -23,6 +23,7 @@ public class Conjoint {
             case "100":
                 if (maxSoin100 - Dollar.transformerEnEntier(montant) < 0) {
                     resultat = Dollar.transformerEnString(maxSoin100);
+                    maxSoin100 = 0;
                 } else {
                     maxSoin100 = maxSoin100 - Dollar.transformerEnEntier(montant);
                     resultat = montant;
@@ -31,6 +32,7 @@ public class Conjoint {
             case "175":
                 if (maxSoin175 - Dollar.transformerEnEntier(montant) < 0) {
                     resultat = Dollar.transformerEnString(maxSoin175);
+                    maxSoin175 = 0;
                 } else {
                     maxSoin175 = maxSoin175 - Dollar.transformerEnEntier(montant);
                     resultat = montant;
@@ -39,6 +41,7 @@ public class Conjoint {
             case "200":
                 if (maxSoin200 - Dollar.transformerEnEntier(montant) < 0) {
                     resultat = Dollar.transformerEnString(maxSoin200);
+                    maxSoin200 = 0;
                 } else {
                     maxSoin200 = maxSoin200 - Dollar.transformerEnEntier(montant);
                     resultat = montant;
@@ -47,6 +50,7 @@ public class Conjoint {
             case "500":
                 if (maxSoin500 - Dollar.transformerEnEntier(montant) < 0) {
                     resultat = Dollar.transformerEnString(maxSoin500);
+                    maxSoin500 = 0;
                 } else {
                     maxSoin500 = maxSoin500 - Dollar.transformerEnEntier(montant);
                     resultat = montant;
@@ -55,6 +59,7 @@ public class Conjoint {
             case "600":
                 if (maxSoin600 - Dollar.transformerEnEntier(montant) < 0) {
                     resultat = Dollar.transformerEnString(maxSoin600);
+                    maxSoin600 = 0;
                 } else {
                     maxSoin600 = maxSoin600 - Dollar.transformerEnEntier(montant);
                     resultat = montant;
